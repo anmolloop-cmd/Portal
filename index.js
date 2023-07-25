@@ -4,7 +4,7 @@ const dotenv=require('dotenv').config();
 const asyncHandler = require('express-async-handler');
 const mongoose=require('mongoose');
 const user=require('./userSchema');
-const DB=process.env.DB;
+const DB='mongodb+srv://anmolloop:GIGIu245fKnIiN81@cluster-x.yaceaua.mongodb.net/';
 
 const app=express();
 const port=process.env.PORT||5000;
