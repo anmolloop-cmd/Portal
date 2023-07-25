@@ -31,13 +31,17 @@ function connectDB(){
 
 connectDB();
 
-app.get('/register',asyncHandler(async(req,res)=>{
+app.get('/register',async(req,res)=>{
     const value=await user.count();
     res.status(200).json({value:`Total count is ${value}`});
-}))
+})
+
+app.get('/',(req,res)=>{
+    res.send('Hi the server is running')
+})
 
 
-app.post("/register",asyncHandler(async(req,res)=>{
+app.post("/register",async(req,res)=>{
     const{email,password}=req.body;
     if(!email||!password)
     {
@@ -47,7 +51,7 @@ app.post("/register",asyncHandler(async(req,res)=>{
     const status=await contact.save();
     if(status){
     res.status(201).json(contact);
-    }}))
+    }})
 
 app.listen(port,()=>{
     try{
